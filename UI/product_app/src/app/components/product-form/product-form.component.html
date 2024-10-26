@@ -1,0 +1,49 @@
+<div class="m1" >
+    <div style="display: flex;justify-content: space-between;    align-items: center;">
+
+        <h4>{{ "Add products" }}</h4>
+        <button class="save" type="submit" (click)="redirectToList()">Product list
+        </button>
+            
+    </div>
+    <form > <!-- Pass the event here -->
+        <div>
+            <div *ngFor="let item of items; let i = index" class="item-row">
+                <input type="file" accept="image/*" />
+
+
+                <input type="text" [formControl]="getControl(item, 'title')" placeholder="Title" />
+                <div *ngIf="getControl(item, 'title').invalid && getControl(item, 'title').touched">Title is required.</div>
+                
+                <input type="text" [formControl]="getControl(item, 'description')" placeholder="Description" />
+                <div *ngIf="getControl(item, 'description').errors?.['required'] && getControl(item, 'description').touched">
+                    Description is required.
+                </div>
+                <div *ngIf="getControl(item, 'description').errors?.['maxLength'] && getControl(item, 'description').touched">
+                    Description cannot exceed 250 characters.
+                </div>
+                
+
+                <input type="number" [formControl]="getControl(item, 'qty')" placeholder="Qty" />
+                <div *ngIf="getControl(item, 'qty').invalid && getControl(item, 'qty').touched">Quantity is required and must be at least 1.</div>
+                
+
+                <input type="number" [formControl]="getControl(item, 'price')" placeholder="Price" />
+                <div *ngIf="getControl(item, 'price').invalid && getControl(item, 'price').touched">Price is required and must be at least 0.</div>
+                
+
+                <input type="date" [formControl]="getControl(item, 'date')" />
+                <div *ngIf="getControl(item, 'date').invalid && getControl(item, 'date').touched">Date is required.</div>
+                
+
+                <div style="margin-left: auto;">
+                    <button *ngIf="items.length - 1 !== i" type="button" (click)="removeItem(i)">-</button>
+                    <button style="margin-left: 1em;" type="button" (click)="addItem()">+</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <button class="save" type="submit" (click)="saveForm($event)">Save</button>
+    </form>
+</div>

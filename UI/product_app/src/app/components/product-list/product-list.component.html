@@ -1,0 +1,54 @@
+<div class="main-continer m1">
+    
+<div class="header-options">
+        <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        placeholder="Search by name or description"
+        (ngModelChange)="filteredProducts()"
+        (input)="currentPage = 1" />
+        <button (click)="goToAddProduct()">Add Product</button> 
+</div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:8em">Product image</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let product of paginatedProducts">
+            <tr>
+                <td><img style="width:2em" [src]="product.image"></td>
+                <td>
+                    <div style="display: flex;flex-direction: column;">
+
+                        <span>
+                            {{ product.name }}
+                        </span>
+                        
+                        <span>
+                        {{ product.description }}
+                    </span>
+                    </div>
+                </td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.date }}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+<div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages()">Next</button>
+</div>
+
+</div>

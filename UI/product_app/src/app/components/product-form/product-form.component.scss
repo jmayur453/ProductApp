@@ -1,0 +1,78 @@
+
+form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin: auto;
+  }
+
+  .item-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .item-row input[type="text"],
+  .item-row input[type="number"],
+  .item-row input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 100px;
+  }
+  
+  .item-row input[type="file"] {
+    border: none;
+  }
+  
+  button[type="button"] {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #e0e0e0;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+
+  button[type="button"].add {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+  
+  button[type="button"].remove {
+    color: red;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+  
+  .save{
+    margin: 0 !important;
+    margin-left:auto !important; 
+  }
